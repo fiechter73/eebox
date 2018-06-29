@@ -1,0 +1,54 @@
+<div class="page-layout carded fullwidth">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg mat-accent-bg"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- CONTENT HEADER -->
+        <div class="header mat-accent-bg p-24" fxLayout="row" fxLayoutAlign="start center">
+            <h2 class="m-0">Customers details:</h2>
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card mat-white-bg">
+
+            <!-- CONTENT TOOLBAR -->
+            <div class="toolbar px-24 py-8">
+                <span>Detail:</span>
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+            <!-- CONTENT -->
+            <div class="content p-24">
+                <div class="container">
+                    <mat-card class="contact-details">
+                    <mat-card-content>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem"> Boxentype:  <b> {{ contract.type }} </b> </mat-list-item>
+                        <mat-list-item role="listitem"> Boxnummer:  <b> {{ contract.boxNr }} </b></mat-list-item>
+                        <mat-list-item role="listitem"> Building Information: <b>{{ contract.buildingInfo }}</b> </mat-list-item>
+                        <mat-list-item role="listitem"> Miet Startdatum:<b> {{ contract.contractStartDate | date : "dd-MM-y" }} </b> </mat-list-item>
+                        <mat-list-item role="listitem"> Miet Enddatum:<b> {{ contract.contractEndDate | date : "dd-MM-y"}}  </b></mat-list-item>
+                        <mat-list-item role="listitem"> Aktuell Laufzeit in Monaten: <b>{{ contract.runningTime }}</b> </mat-list-item>
+                    </mat-list>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <a mat-raised-button color="warn"  [routerLink]="['/contracts-edit']" [queryParams]=" { idContract: contract.id, idContact: idContact }">EDIT</a>
+                      <a mat-raised-button color="warn"  [routerLink]="['/contracts']" [queryParams]=" { idContract: contract.id, idContact: idContact }">BACK</a>
+                      <button mat-raised-button color="primary"  type="button" (click)="deleteContract(idContact, contract.id, contract)">DELETE</button>
+                    </mat-card-actions>
+                    </mat-card>
+                </div>               
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

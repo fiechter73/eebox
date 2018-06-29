@@ -1,0 +1,78 @@
+<div class="page-layout carded fullwidth">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg mat-accent-bg"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- CONTENT HEADER -->
+        <div class="header mat-accent-bg p-24" fxLayout="row" fxLayoutAlign="start center">
+            <h2 class="m-0">Customers edit:</h2>
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card mat-white-bg">
+
+            <!-- CONTENT TOOLBAR -->
+            <div class="toolbar px-24 py-8">
+                <span>Edit:</span>
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+            <!-- CONTENT -->
+            <div fuse-card>
+              <div class="content p-100">
+                  <div class="col-md-6">
+                    <form (ngSubmit)="updateContact(idContact, contact)" #contactForm="ngForm">
+                      <div class="form-group">
+                        <mat-form-field>
+                          <mat-select placeholder="Anrede" [(ngModel)]="contact.anrede" name="anrede">
+                            <mat-option *ngFor="let anrede of anreden" [value]="anrede.value">
+                              {{anrede.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>    
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                          <input matInput  type="text" class="form-control" [(ngModel)]="contact.name" name="name" required>
+                        </mat-form-field>    
+                      </div>
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                          <input matInput  type="text" class="form-control" [(ngModel)]="contact.address" name="address" required>
+                        </mat-form-field> 
+                      </div>
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                          <input matInput  type="text" class="form-control" [(ngModel)]="contact.city" name="city" required>
+                        </mat-form-field> 
+                      </div>
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                          <input  matInput  type="phone" class="form-control" [(ngModel)]="contact.phone" name="phone" required>
+                        </mat-form-field> 
+                      </div>
+                      <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                          <input matInput  type="email" class="form-control" [(ngModel)]="contact.email" name="email" required>
+                        </mat-form-field> 
+                      </div>
+                      <div class="form-group">
+                        <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.form.valid">Update</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>            
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>
